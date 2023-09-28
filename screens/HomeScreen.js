@@ -5,20 +5,21 @@ import { Card } from '@rneui/base';
 
 
 const HomeScreen = ({navigation}) => {
-   const {imageURL, setImageURL} = useState (
-        "https://i.pcmag.com/imagery/articles/05m7JVroFXcCobC0Vbo3wQJ-49.fit_lim.size_1600x900.v1675976887.jpg"
-    ); 
-
     return (
         <View style={styles.container}>
             <Card>
-                <Card.Image source={{uri: imageURL}} /> 
+                <Card.Image source={{uri: "https://www.findlaw.com/injury/car-accidents/someone-hit-my-parked-car-and-left-what-do-i-do/_jcr_content/pg/articleHeading/imageInLine.coreimg.jpeg/1553539860162.jpeg"}} /> 
                 <Text style={styles.title}> Welcome to Find Your Parked Car! </Text>
             </Card>
             <Button
                 style={styles.buttons}
-                title = "Mark my Location"
+                title="Mark my Location"
                 onPress= {() => navigation.navigate('MarkScreen')}
+            />
+            <Button
+                style={styles.buttons}
+                title="Find my Location"
+                onPress= {() => navigation.navigate('FindScreen')}
             />
         </View>
     );
@@ -39,7 +40,6 @@ const styles = StyleSheet.create({
 
     buttons: {
         borderRadius: 25,
-        
         padding: 25,
         margin: 10,
     },
