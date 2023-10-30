@@ -1,5 +1,5 @@
 import { Button } from '@rneui/themed';
-import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View,} from "react-native";
+import { StyleSheet, Text, View,} from "react-native";
 import React, { useState } from "react";
 import { Card } from '@rneui/base';
 
@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       padding: 10,
-      backgroundColor: "#E8EAF6",
+      backgroundColor: "#FFE4E1",
       flex: 1,
     },
     

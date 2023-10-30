@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Platform, Text, View, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Device from 'expo-device';
 import * as Location from 'expo-location';
 import { Feather } from "@expo/vector-icons";
-import { initHistoryDB, setUpHistoryListener, storeHistoryItem } from "../helpers/fb-history";
+import { Card } from '@rneui/base';
 
 export default function MarkScreen() {
   const [location, setLocation] = useState(null);
@@ -36,10 +36,13 @@ export default function MarkScreen() {
   }
 
   return (
-    <View style={styles.container}>
-        <Text style={styles.header}>View the latitude and longitude to show where you parked your car.</Text>
-      <Text style={styles.paragraph}>{text}</Text>
-    </View>
+      <View>
+            <Card>
+                    <Card.Image source={{uri: "https://www.findlaw.com/static/c/images/image/upload/v1678207336/aemwp-prod/Parking-Garage-Cars.jpg"}} /> 
+            </Card>
+            <Text style={styles.header}>Here is the longitude, latitude, and other useful information about where your parked car is located.</Text>
+          <Text style={styles.paragraph}>{text}</Text>
+        </View>
   );
 };
 const Example = ({navigation}) => {
@@ -58,34 +61,11 @@ const Example = ({navigation}) => {
             )
         });
     });
-
-    useEffect(() => {
-        try {
-            initHistoryDB();
-        } catch (err) {
-            console.log(err);
-        }
-        setUpHistoryListener((items) => {
-            console.log("setting state with: ", items);
-            setHistory(items);
-        });
-      }, []);
-    
-      useEffect(() => {
-        if (route.params?.text) {
-            storeHistoryItem(route.params);
-        }
-      },  [route.params?.text]);
-    }
+  }
    
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
+  
   paragraph: {
     fontSize: 18,
     textAlign: 'center',
@@ -95,5 +75,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 25,
     margin: 30,
+    fontWeight: 'bold'
   }
 });

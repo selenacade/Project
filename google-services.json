@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "995557036932",
+    "firebase_url": "https://myprojectapp-8d672-default-rtdb.firebaseio.com",
+    "project_id": "myprojectapp-8d672",
+    "storage_bucket": "myprojectapp-8d672.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995557036932:android:60551e7bd7a7a118cac3d1",
+        "android_client_info": {
+          "package_name": "edu.gvsu.myprojectapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApsIuvzKJ26DgzVR4LsfW4aNyVPhEEnSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
