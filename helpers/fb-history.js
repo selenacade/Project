@@ -3,6 +3,7 @@ import { getDatabase, onValue, ref, set, push, remove } from "firebase/database"
 import { firebaseConfig } from "./fb-credentials";
 
 export function initHistoryDB(){
+    console.log('initializing db')
     initializeApp(firebaseConfig);
 }
 

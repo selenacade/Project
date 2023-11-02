@@ -1,10 +1,17 @@
 import { Button } from '@rneui/themed';
 import { StyleSheet, Text, View,} from "react-native";
-import React, { useState } from "react";
+import React, { useEffect} from "react";
 import { Card } from '@rneui/base';
-
+import { initHistoryDB } from '../helpers/fb-history';
 
 const HomeScreen = ({navigation}) => {
+    useEffect(() => {
+        try {
+            initHistoryDB();
+        } catch (err) {
+            console.log(err);
+        }
+    }, []);
     return (
         <View style={styles.container}>
             <Card>
@@ -28,7 +35,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       padding: 10,
-      backgroundColor: "#FFE4E1",
+      backgroundColor: "#FAF0E6",
       flex: 1,
     },
     
@@ -36,12 +43,12 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 25,
         color: "black",
+        textAlign: 'center',
     },
 
     buttons: {
-        borderRadius: 25,
         padding: 25,
-        margin: 10,
+        margin: 30,
     },
 });
 
