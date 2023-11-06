@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Platform, Text, View, StyleSheet, TouchableOpacity, FlatList, SafeAreaView, ScrollView } from 'react-native';
 import Device from 'expo-device';
 import * as Location from 'expo-location';
 import { Feather } from "@expo/vector-icons";
@@ -38,22 +38,18 @@ export default function MarkScreen(route) {
   }
 
   return (
-       // <FlatList
-      //      data={location}
-      //      renderItem={({location})=> {
-       //       return (
-                <View style={styles.container}>
-                  <Card>
-                    <Card.Image source={{uri: "https://www.findlaw.com/static/c/images/image/upload/v1678207336/aemwp-prod/Parking-Garage-Cars.jpg"}} /> 
-                  </Card>
-                  <Text style={styles.header}>Here is useful information about where your parked car is located:</Text>
-                  <Text style={styles.paragraph}>{text}</Text>
-                  <Text style={styles.text}>Use the longitude and latitude on this page to find your car on the following page. Make sure to copy your coordinates into Google Maps.</Text>
-               </View>
-              );
-         //   }}
-        //  />
- // );
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.ScrollView}>
+         <Card>
+            <Card.Image source={{uri: "https://www.findlaw.com/static/c/images/image/upload/v1678207336/aemwp-prod/Parking-Garage-Cars.jpg"}} /> 
+         </Card>
+         <Text style={styles.header}>Here is useful information about where your parked car is located:</Text>
+         <Text style={styles.paragraph}>{text}</Text>
+         <Text style={styles.text}>Use the longitude and latitude on this page to find your car on the following page. Make sure to copy your coordinates into Google Maps.</Text>
+      </ScrollView>
+
+      </SafeAreaView>
+  );
 };
 const Example = ({navigation}) => {
     useEffect(() => {

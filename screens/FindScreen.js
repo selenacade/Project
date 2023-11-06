@@ -1,20 +1,18 @@
-import { Text, TouchableOpacity, View,} from "react-native";
+import { Text, TouchableOpacity, View, StyleSheet} from "react-native";
 import React, { useEffect, useState } from "react";
 import { Card } from '@rneui/base';
 import { setUpHistoryListener, storeHistoryItem } from "../helpers/fb-history";
 import { Feather } from "@expo/vector-icons";
 import { showLocation } from 'react-native-map-link';
+import * as Location from 'expo-location';
+
 
 const FindScreen = ({navigation}) => {
     const [find, setFind] = useState(""); 
-    const [description, setDescription] = useState({
-        long: "",
-        lat: "",
-        accuracy: ""
-    });
+
     showLocation({
-      latitude: 42.85457,
-      longitude: 85.88940,
+      latitude: "42.90706",
+      longitude: "85.76301",
       title: 'Grand Valley State University', 
       googleForceLatLon: false, 
       alwaysIncludeGoogle: true, 
@@ -27,7 +25,7 @@ const FindScreen = ({navigation}) => {
     });
 
     return (
-        <View>
+        <View style={styles.container}>
              <Card>
                 <Card.Image source={{uri: "https://as1.ftcdn.net/v2/jpg/02/61/34/34/1000_F_261343474_JL8KQzVDlU74xpgOGgLGvSS4DjQReqqn.jpg"}} /> 
              </Card>
@@ -65,5 +63,12 @@ const FindScreen = ({navigation}) => {
           }
         },  [route.params?.text]);
       };
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "#FAF0E6",
+        flex: 1,
+    },
+ });
 
 export default FindScreen;
